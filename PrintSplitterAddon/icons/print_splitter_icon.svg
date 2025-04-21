@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .cube-face { fill: #a0a0a0; stroke: #333333; stroke-width: 2; }
+      .cut-line { stroke: #ff6666; stroke-width: 3; stroke-dasharray: 6, 3; }
+    </style>
+  </defs>
+
+  <!-- Simple representation of a cube -->
+  <polygon class="cube-face" points="10,22 32,10 54,22 32,34" /> <!-- Top face -->
+  <polygon class="cube-face" points="10,22 10,46 32,58 32,34" /> <!-- Left face -->
+  <polygon class="cube-face" points="32,34 32,58 54,46 54,22" /> <!-- Right face -->
+
+  <!-- Cutting line representation through the middle -->
+  <line class="cut-line" x1="5" y1="39" x2="59" y2="39" />
+
+</svg> 
