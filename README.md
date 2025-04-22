@@ -22,9 +22,9 @@ PrintSplitter permite a los usuarios tomar un objeto sólido grande dentro de Fr
 
 <table>
   <tr>
-    <td>[Interfaz del Workbench - Próximamente]</td>
-    <td>[Panel de Tareas - Próximamente]</td>
-    <td>[Ejemplo de Corte - Próximamente]</td>
+    <td>![image](https://github.com/user-attachments/assets/35032369-f155-4ec6-a384-b83bc1a384ba)</td>
+    <td>![image](https://github.com/user-attachments/assets/9167ad09-4856-4581-afb0-566037110846)</td>
+    <td>![image](https://github.com/user-attachments/assets/045573fd-c622-4ed4-8e08-dc0c87923582)</td>
   </tr>
 </table>
 
@@ -59,7 +59,7 @@ La instalación actualmente es manual:
 
 ## Licencia
 
-Este proyecto se ha creado de manera Open-Source bajo la licencia GPL v3 (Licencia Pública General de GNU v3). Puedes copiar, modificar y distribuir el código, siempre y cuando mantengas la misma licencia y hagas públicos cualquier cambio que realices. *(Nota: Se debe añadir un archivo LICENSE formal al repositorio).* **Se recomienda añadir el archivo LICENSE.**
+Este proyecto se ha creado de manera Open-Source bajo la licencia GPL v3 (Licencia Pública General de GNU v3). Puedes copiar, modificar y distribuir el código, siempre y cuando mantengas la misma licencia y hagas públicos cualquier cambio que realices.
 
 ## Soporte
 
