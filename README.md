@@ -17,9 +17,6 @@ PrintSplitter permite a los usuarios tomar un objeto sólido grande dentro de Fr
 - **Funcionalidad de Conectores (EN DESARROLLO):** El código incluye lógica para intentar añadir conectores (pines/agujeros) entre las piezas cortadas. **Actualmente, esta funcionalidad no está operativa y los conectores no se añaden correctamente a las piezas finales.** Mejorar y arreglar esta característica es la principal prioridad de desarrollo pendiente.
 
 ## Capturas de pantalla
-
-*(Se añadirán capturas de pantalla del workbench y del panel de tareas)*
-
 <table>
   <tr>
     <td>![image](https://github.com/user-attachments/assets/35032369-f155-4ec6-a384-b83bc1a384ba)</td>
