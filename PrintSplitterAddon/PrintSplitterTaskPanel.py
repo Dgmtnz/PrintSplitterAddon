@@ -179,8 +179,70 @@ class PrintSplitterTaskPanel:
                  FreeCAD.Console.PrintMessage("Connectors: Disabled\n")
 
 
-            # --- Initial Splitting ---
-            shape_to_split = self.obj_to_split.Shape
+            # --- Get the initial shape ---
+            initial_shape = self.obj_to_split.Shape
+            shape_to_split = None # Initialize
+
+            # --- Attempt to convert to solid ---
+            FreeCAD.Console.PrintMessage("Attempting to ensure object is solid...\n")
+            try:
+                if isinstance(initial_shape, Part.Solid):
+                    FreeCAD.Console.PrintMessage("  Object is already a solid.\n")
+                    shape_to_split = initial_shape
+                elif isinstance(initial_shape, Part.Compound):
+                    FreeCAD.Console.PrintMessage("  Object is a Compound. Attempting to create solid via Shell(Faces) -> makeSolid()...\n")
+                    try:
+                        # Check if the compound has faces first
+                        if initial_shape.Faces:
+                            # 1. Try creating a single shell from all faces
+                            temp_shell = Part.Shell(initial_shape.Faces)
+                            if temp_shell and not temp_shell.isNull():
+                                FreeCAD.Console.PrintMessage("    Intermediate shell created from faces.\n")
+                                # 2. Try creating a solid from the shell using Part.makeSolid()
+                                converted_solid = Part.makeSolid(temp_shell)
+                                if converted_solid and isinstance(converted_solid, Part.Solid) and converted_solid.Volume > 1e-9:
+                                    FreeCAD.Console.PrintMessage("    Conversion from Compound faces via shell successful.\n")
+                                    shape_to_split = converted_solid
+                                else:
+                                    FreeCAD.Console.PrintWarning("    Part.makeSolid() failed on shell created from Compound faces. Proceeding with original Compound.\n")
+                                    shape_to_split = initial_shape # Fallback
+                            else:
+                                FreeCAD.Console.PrintWarning("    Failed to create intermediate shell from Compound faces. Proceeding with original Compound.\n")
+                                shape_to_split = initial_shape # Fallback
+                        else:
+                             FreeCAD.Console.PrintWarning("    Compound contains no faces to form a shell/solid from. Proceeding with original Compound.\n")
+                             shape_to_split = initial_shape
+                    except Exception as comp_conv_err:
+                         FreeCAD.Console.PrintWarning(f"    Error during Compound conversion via faces/shell: {comp_conv_err}. Proceeding with original Compound.\n")
+                         shape_to_split = initial_shape
+                elif isinstance(initial_shape, Part.Shell):
+                    FreeCAD.Console.PrintMessage("  Object is a Shell. Attempting conversion using Part.makeSolid()...\n")
+                    try:
+                        converted_solid = Part.makeSolid(initial_shape)
+                        if converted_solid and isinstance(converted_solid, Part.Solid) and converted_solid.Volume > 1e-9:
+                            FreeCAD.Console.PrintMessage("    Conversion from Shell successful.\n")
+                            shape_to_split = converted_solid
+                        else:
+                            FreeCAD.Console.PrintWarning("    Part.makeSolid() failed or resulted in invalid/zero-volume solid. Proceeding with original Shell.\n")
+                            shape_to_split = initial_shape # Fallback to original shell
+                    except Exception as shell_conv_err:
+                        FreeCAD.Console.PrintWarning(f"    Error during Shell Part.makeSolid() conversion: {shell_conv_err}. Proceeding with original Shell.\n")
+                        shape_to_split = initial_shape
+                else:
+                    # Handle other types like Face, Wire etc. - Cannot convert directly here.
+                    FreeCAD.Console.PrintWarning(f"  Object type ({type(initial_shape).__name__}) cannot be automatically converted to solid here. Proceeding with original shape.\n")
+                    shape_to_split = initial_shape # Fallback
+
+            except Exception as conv_err:
+                FreeCAD.Console.PrintWarning(f"  Unexpected error during automatic solid conversion check: {conv_err}. Proceeding with original shape.\n")
+                shape_to_split = initial_shape # Fallback to original
+
+            # Ensure we have a shape to work with before proceeding
+            if not shape_to_split or shape_to_split.isNull():
+                 raise ValueError("Could not obtain a valid shape from the selected object after conversion attempt.")
+
+            # --- Initial Splitting Checks (using the potentially converted shape) ---
+            # shape_to_split = self.obj_to_split.Shape # This line is replaced by the logic above
             global_bbox = shape_to_split.BoundBox.transformed(self.obj_to_split.Placement.Matrix)
             needs_split_x = global_bbox.XLength > printer_x
             needs_split_y = global_bbox.YLength > printer_y

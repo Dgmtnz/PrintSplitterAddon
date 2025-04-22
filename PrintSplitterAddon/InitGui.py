@@ -5,7 +5,7 @@ import FreeCADGui
 
 # Importa el módulo donde definirás el comando y la lógica principal
 # Use a relative import if PrintSplitter.py is in the same directory
-from . import PrintSplitter
+# REMOVED: from . import PrintSplitter
 
 class PrintSplitterWorkbench (FreeCADGui.Workbench):
     """
@@ -29,13 +29,14 @@ class PrintSplitterWorkbench (FreeCADGui.Workbench):
         FreeCAD.Console.PrintMessage("Initializing PrintSplitter Workbench UI...\n")
 
         # Importa el comando definido en PrintSplitter.py
-        from .PrintSplitter import PrintSplitterCommand
+        # REMOVED: from .PrintSplitter import PrintSplitterCommand
 
         # Lista de nombres de comandos (strings)
         self.list = ["PrintSplitter_Command"]
 
         # Crea una instancia del comando
-        cmd = PrintSplitterCommand()
+        import PrintSplitter # ADDED
+        cmd = PrintSplitter.PrintSplitterCommand() # MODIFIED
 
         # Añade el comando a FreeCAD con su nombre
         FreeCADGui.addCommand('PrintSplitter_Command', cmd)

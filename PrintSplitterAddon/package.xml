@@ -19,7 +19,6 @@
     <macro/>
     <workbench>
       <classname>PrintSplitterWorkbench</classname>
-      <subdirectory>PrintSplitterAddon</subdirectory>
     </workbench>
   </content>
 

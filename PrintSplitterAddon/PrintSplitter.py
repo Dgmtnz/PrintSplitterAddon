@@ -5,8 +5,8 @@ import FreeCADGui
 import Part # Needed for checking object type
 from PySide import QtGui, QtCore # Needed for messages and translation
 
-# Import the task panel class using relative import
-from . import PrintSplitterTaskPanel
+# Import the task panel class using direct import
+from PrintSplitterTaskPanel import PrintSplitterTaskPanel
 
 class PrintSplitterCommand:
     """
@@ -85,7 +85,7 @@ class PrintSplitterCommand:
         # 4. Create and show the task panel, passing the selected object
         try:
             # Keep track of the panel instance if needed, otherwise just show
-            panel = PrintSplitterTaskPanel.PrintSplitterTaskPanel(selected_obj)
+            panel = PrintSplitterTaskPanel(selected_obj)
             panel.show() # Use the show method defined in the panel class
             # FreeCADGui.Control.showDialog(panel) # Older method, createDialog is preferred
         except Exception as e:
