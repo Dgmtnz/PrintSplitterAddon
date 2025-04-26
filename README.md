@@ -19,12 +19,9 @@ PrintSplitter permite a los usuarios tomar un objeto sólido grande dentro de Fr
 ## Capturas de pantalla
 <table>
   <tr>
-    <td>![image](https://github.com/user-attachments/assets/a3bb8da5-df74-4101-b974-a1f62d40774a)
-</td>
-    <td>![image](https://github.com/user-attachments/assets/38345fd7-9e26-4f7e-9f5f-025cf4c4022e)
-</td>
-    <td>![image](https://github.com/user-attachments/assets/eca1e40e-f1ac-469d-b2e3-65c7194589fa)
-</td>
+    <td><img src="https://github.com/user-attachments/assets/a3bb8da5-df74-4101-b974-a1f62d40774a" alt="Captura de pantalla 1"></td>
+    <td><img src="https://github.com/user-attachments/assets/38345fd7-9e26-4f7e-9f5f-025cf4c4022e" alt="Captura de pantalla 2"></td>
+    <td><img src="https://github.com/user-attachments/assets/eca1e40e-f1ac-469d-b2e3-65c7194589fa" alt="Captura de pantalla 3"></td>
   </tr>
 </table>
 
