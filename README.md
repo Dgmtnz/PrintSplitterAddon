@@ -19,10 +19,11 @@ PrintSplitter permite a los usuarios tomar un objeto sólido grande dentro de Fr
 ## Capturas de pantalla
 <table>
   <tr>
-    <td>img src="https://github-production-user-asset-6210df.s3.amazonaws.com/53713954/436074170-35032369-f155-4ec6-a384-b83bc1a384ba.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250426%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250426T201441Z&X-Amz-Expires=300&X-Amz-Signature=1e963c33a5888bdac79364276146a48ca96c526e42f333db480ffe26ce44db0f&X-Amz-SignedHeaders=host" width="200"/</td>
-    <td>![image](https://github.com/user-attachments/assets/18cfea8e-b93c-4180-8f48-e43f7a1f7287)
+    <td>![image](https://github.com/user-attachments/assets/a3bb8da5-df74-4101-b974-a1f62d40774a)
 </td>
-    <td>![image](https://github.com/user-attachments/assets/edfd1698-3e66-4204-8f05-936dfd85121f)
+    <td>![image](https://github.com/user-attachments/assets/38345fd7-9e26-4f7e-9f5f-025cf4c4022e)
+</td>
+    <td>![image](https://github.com/user-attachments/assets/eca1e40e-f1ac-469d-b2e3-65c7194589fa)
 </td>
   </tr>
 </table>
